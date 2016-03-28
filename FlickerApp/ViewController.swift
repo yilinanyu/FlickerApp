@@ -44,7 +44,7 @@ class ViewController: UICollectionViewController
         let requestSuccess = {
             (operation :AFHTTPRequestOperation!, responseObject :AnyObject?) -> Void in
             SVProgressHUD.dismiss()
-            self.photos = responseObject!.objectForKey("photos")!.objectForKey("photo") as Array
+            let photos:NSArray = responseObject!.objectForKey("photos")!.objectForKey("photo") as! NSArray
             
             self.collectionView!.reloadData()
             NSLog("requestSuccess \(responseObject)")
